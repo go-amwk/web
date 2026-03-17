@@ -24,19 +24,21 @@ import (
 )
 
 func main() {
-	// Create a new web application instance.
-	app := web.Default()
+  // Create a new web application instance.
+  app := web.Default()
 
-	// Add a simple handler that responds with "Hello, World!" to any request.
-	app.Use(func(ctx *core.Context) error {
+  // Add a simple handler that responds with "Hello, World!" to any request.
+  app.Use(func(ctx *core.Context) error {
     ctx.Write([]byte("Hello, World!"))
     return nil
   })
 
-	// Start the server
-	app.Start()
+  // Start the server
+  app.Start()
 }
 ```
+
+The server will listen on the default port (8000) and respond with "Hello, World!" to any incoming HTTP request.
 
 For more detailed examples and usage, please refer to the [examples](https://github.com/go-amwk/examples) repository.
 
