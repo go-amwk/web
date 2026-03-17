@@ -9,8 +9,7 @@ import (
 
 // Request represents an HTTP request received by the application.
 type Request struct {
-	pathValue map[string]string
-	resource  string
+	resource string
 
 	req *http.Request
 }
@@ -18,8 +17,7 @@ type Request struct {
 // newRequest creates a new Request instance from the given http.Request.
 func newRequest(r *http.Request) *Request {
 	req := &Request{
-		req:       r,
-		pathValue: make(map[string]string),
+		req: r,
 	}
 
 	return req
@@ -97,13 +95,13 @@ func (req *Request) Path() string {
 // PathValue returns the value of the specified path parameter from the request. If the parameter
 // is not present, it returns an empty string.
 func (req *Request) PathValue(name string) string {
-	return req.pathValue[name]
+	return req.req.PathValue(name)
 }
 
 // SetPathValue sets the value of the specified path parameter in the request. This is typically
 // used by the router to store path parameters extracted from the URL.
 func (req *Request) SetPathValue(name, value string) {
-	req.pathValue[name] = value
+	req.req.SetPathValue(name, value)
 }
 
 // Resource returns the resource associated with the request. The resource is a string that can be
