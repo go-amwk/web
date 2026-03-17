@@ -13,14 +13,14 @@ go mod tidy
 
 ## Getting Started
 
-There are a simple example to demonstrate how to use the `web` package to create a basic web server.
+Here is a simple example demonstrating how to use the `web` package to create a basic web server.
 
 ```go
 package main
 
 import (
   "github.com/go-amwk/core"
-	"github.com/go-amwk/web"
+  "github.com/go-amwk/web"
 )
 
 func main() {
